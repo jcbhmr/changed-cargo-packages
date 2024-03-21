@@ -1,5 +1,9 @@
-name: Get changed cargo packages
-description: ""
+name: Get changed Cargo packages
+description: "x"
+
+branding:
+  icon: info
+  color: yellow
 
 inputs:
   token:
