@@ -14,6 +14,7 @@ if (
     () => false,
   )
 ) {
+    await $({ stdio: "inherit" })`git fetch`
     let beforeSha: string
     if (github.context.eventName === "push") {
         const payload = github.context.payload as PushEvent
