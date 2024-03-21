@@ -48,6 +48,7 @@ if (
     throw new DOMException(`cannot handle ${github.context.eventName}`);
   }
 }
+console.log("changedFiles=%o", changedFiles)
 
 const path = resolve(core.getInput("path"));
 
@@ -60,9 +61,10 @@ const packages = stdout.split(/(?:\r?\n){2}/g).map((x) => ({
   name: x.split(" ", 1)[0],
   path: x.match(/\((.+)\)/)![1],
 }));
+console.log("packages=%o", packages)
 
-const changedPackages = packages.filter((p) =>
+const changedPackageNames = packages.filter((p) =>
   changedFiles.some((f) => f.startsWith(p.path + sep)),
-);
-const changedPackageNames = changedPackages.map((x) => x.name);
+).map(x => x.name)
 core.setOutput("changed-cargo-packages", JSON.stringify(changedPackageNames));
+console.log("changedPackageNames=%o", changedPackageNames)
