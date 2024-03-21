@@ -7,19 +7,19 @@ on:
       - LICENSE
       - README.md
       - .github/**
-      - "!.github/workflows/npm-test.yml"
+      - "!.github/workflows/test-action.yml"
   pull_request:
     paths-ignore:
       - .gitignore
       - LICENSE
       - README.md
       - .github/**
-      - "!.github/workflows/npm-test.yml"
+      - "!.github/workflows/test-action.yml"
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  npm-test:
+  test-action:
     strategy:
       fail-fast: false
       matrix:
