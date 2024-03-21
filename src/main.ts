@@ -25,7 +25,7 @@ if (
         throw new DOMException(`cannot handle ${github.context.eventName}`)
     }
   const { stdout } = await $`git diff --name-only ${beforeSha}`;
-  changedFiles = stdout.split(/\r?\n/g).filter((x) => x);
+  changedFiles = stdout.split(/\r?\n/g).filter((x) => x).map((x) => resolve(x));
 } else {
   if (github.context.eventName === "push") {
     const payload = github.context.payload as PushEvent;
