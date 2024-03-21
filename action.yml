@@ -5,6 +5,9 @@ inputs:
   token:
     description: ""
     default: ${{ github.token }}
+  path:
+    description: ""
+    default: .
 
 outputs:
   changed-cargo-packages:
