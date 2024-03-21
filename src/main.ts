@@ -54,4 +54,4 @@ const changedPackages = packages.filter((p) =>
   changedFiles.some((f) => f.startsWith(p.path + sep)),
 );
 const changedPackageNames = changedPackages.map((x) => x.name);
-core.setOutput("changed-packages", JSON.stringify(changedPackageNames));
+core.setOutput("changed-cargo-packages", JSON.stringify(changedPackageNames));
