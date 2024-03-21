@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "build": "bun build src/main.ts --outdir dist --target node",
     "format": "prettier -w .",
