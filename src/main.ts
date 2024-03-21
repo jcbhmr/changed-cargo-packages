@@ -24,7 +24,7 @@ if (
     } else {
         throw new DOMException(`cannot handle ${github.context.eventName}`)
     }
-  const { stdout } = await $`git diff --name-only ${beforeSha} HEAD`;
+  const { stdout } = await $`git diff --name-only ${beforeSha}`;
   changedFiles = stdout.split(/\r?\n/g).filter((x) => x);
 } else {
   if (github.context.eventName === "push") {
