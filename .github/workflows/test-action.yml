@@ -33,6 +33,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - uses: ./
+      - id: main
+        uses: ./
         with:
           path: test
+      - shell: jq -C . {0}
+        run: ${{ toJSON(steps.main.outputs) }}
